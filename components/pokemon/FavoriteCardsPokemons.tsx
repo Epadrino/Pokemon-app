@@ -5,19 +5,20 @@ import { useRouter } from 'next/router';
 import { Card, Grid } from '@nextui-org/react'
 
 interface Props{
+    pokemonName: string;
     pokemonId: number;
 }
 
-export const FavoriteCarsPokemons: FC<Props>= ({pokemonId}) => {
+export const FavoriteCardsPokemons: FC<Props>= ({pokemonName, pokemonId}) => {
 
     const router = useRouter();
 
         const onFavoriteClicked = () =>{
-            router.push(`/pokemon/${pokemonId}`);
+            router.push(`/name/${pokemonName}`);
     }
 
   return (
-    <Grid xs={6} sm={3} md={2} xl={1} key={pokemonId} onClick={onFavoriteClicked}>
+    <Grid xs={6} sm={3} md={2} xl={1} key={pokemonName} onClick={onFavoriteClicked}>
         <Card isHoverable isPressable css={{padding: 10}}>
             <Card.Image 
             src= {`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${pokemonId}.svg`}

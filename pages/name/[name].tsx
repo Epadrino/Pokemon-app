@@ -17,7 +17,7 @@ const PokemonByNamePage: NextPage<Props> = ({pokemon}) => {
   const [isInFavorites, setisInFavorites, ] = useState(localFavorites.existInFavorites(pokemon.id));
 
   const onToggleFavorite =() => {
-    localFavorites.toggleFavorite(pokemon.id);
+    localFavorites.toggleFavorite(pokemon);
     setisInFavorites(!isInFavorites)
   }
 
@@ -90,7 +90,6 @@ const PokemonByNamePage: NextPage<Props> = ({pokemon}) => {
     </Layout>
   )
 };
-
 
 export const getStaticPaths: GetStaticPaths = async (ctx) => {
   
